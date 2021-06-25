@@ -20,4 +20,16 @@ for i=1:m
 S(i)=prod(x(i,:).^w);
 end
 %tahapan ketiga, proses perangkingan
-V= S/sum(S)
+for i=1:m
+   V(i) = S(i)/sum(S);
+end
+nilai = sort(V,'descend'); %mengurutkan berdasarkan nilai terbesar
+
+for i=1:m
+  for j=1:m
+    if(nilai(i) == V(j))
+      nomor(i) = j; %mencari urutan nomor sesuai dengan data yang sudah diurutkan
+      break
+    end
+  end
+end
